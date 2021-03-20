@@ -1,0 +1,41 @@
+{
+  "name": "swap-telegram-bot",
+  "version": "1.0.0",
+  "description": "telegram notifications bot for swap changes",
+  "main": "index.js",
+  "scripts": {
+    "prettier-fix": "prettier --write \"src/**/*.ts\"",
+    "lint": "npm run prettier-fix && eslint . --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/bot.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JpOttaviano/swap-telegram-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JpOttaviano/swap-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/JpOttaviano/swap-telegram-bot#readme",
+  "dependencies": {
+    "axios": "0.21.1",
+    "dotenv": "8.2.0",
+    "node-schedule": "2.0.0",
+    "node-telegram-bot-api": "0.51.0",
+    "puppeteer": "^8.0.0",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.34",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.22.0",
+    "prettier": "^2.2.1",
+    "puppeteer": "^8.0.0"
+  }
+}
