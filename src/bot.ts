@@ -7,9 +7,13 @@ let job
 
 dotenv.config()
 
-const { TELEGRAM_BOT_TOKEN = '' , PORT = '', HOST = ''} = process.env
+const appUrl = 'https://swap-telegram-bot.herokuapp.com/'
 
-const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true ,webHook: {port: PORT, host: HOST}})
+const { TELEGRAM_BOT_TOKEN = '' , PORT = '8443', HOST = '0.0.0.0'} = process.env
+
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { webHook: {port: PORT, host: HOST}})
+
+bot.setWebHook(`${appUrl}:${PORT}/bot${TELEGRAM_BOT_TOKEN}`)
 
 bot.onText(/trade/, async (msg) => {
   job = schedule.scheduleJob('*/3 * * * *', async () => {
