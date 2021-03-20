@@ -7,9 +7,9 @@ let job
 
 dotenv.config()
 
-const { TELEGRAM_BOT_TOKEN = '' } = process.env
+const { TELEGRAM_BOT_TOKEN = '' , PORT = '', HOST = ''} = process.env
 
-const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true })
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true ,webHook: {port: PORT, host: HOST}})
 
 bot.onText(/trade/, async (msg) => {
   job = schedule.scheduleJob('*/3 * * * *', async () => {
