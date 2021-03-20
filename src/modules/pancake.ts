@@ -5,7 +5,10 @@ const pancakeUrl = 'https://pancakeswap.finance/farms'
 let page
 
 async function goToPage(): Promise<Page> {
-  const browser = await puppeteer.launch({ headless: true })
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  })
   const page = await browser.newPage()
   await page.goto(pancakeUrl, { waitUntil: 'networkidle2' })
   //await page.waitFor(3000)
